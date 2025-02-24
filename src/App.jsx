@@ -1,9 +1,10 @@
-// import React from 'react'
+import React from 'react'
+import Header from './Components/Header/Header'
 import './App.css'
 function App() {
   return (
     <div>
-   <h4>My First Commit </h4>
+      <Header/>
     </div>
   )
 }
