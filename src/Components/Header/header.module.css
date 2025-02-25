@@ -5,6 +5,7 @@
   align-content: center;
   background-color: #131921;
   color: white;
+  position: relative;
 
   a {
     color: white;
@@ -69,16 +70,23 @@
   width: 100%;
   flex: 1;
 }
+.header_serach_select select{
+  padding: 10px 0px;
 
+
+  
+}
 .header_serach select,
 input {
   padding: 12px;
+
+
 }
 .header_serach select {
   border-radius: 4px 0px 0px 4px;
   margin-right: -2px;
   padding: 11px;
-  border: 1px solid lightgray;
+ border: 1px solid lightgray;
 
   width: 60px;
   color: black;
@@ -196,6 +204,41 @@ input {
   }
 }
 
+/* lowwer header */
+
+.container_grid {
+  color: white;
+
+  ul {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 3px;
+    gap: 10px;
+
+    list-style-type: none;
+
+    display: flex;
+    background-color: #232f3e;
+  }
+}
+
+.container_grid ul li:first-child {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 3px;
+}
+
+.container_grid ul li {
+  padding: 4px;
+
+  &:hover {
+    outline: 2px solid lightgrey;
+    border-radius: 2px;
+  }
+}
+
 @media only screen and (max-width: 544px) {
   .Header_container {
     display: flex;
@@ -203,7 +246,25 @@ input {
     align-items: center;
     flex-direction: column !important;
 
+  
     width: 100vw;
+
+    .header_left{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100vw;
+
+      margin-left: 20vw;
+    div{
+      display: none;
+    }
+    }
+  }
+
+  .language {
+    
+    display: none;
   }
 
   .header_left {
@@ -215,11 +276,46 @@ input {
   .header_right {
     display: flex;
 
-    justify-content: space-around;
+    justify-content: space-between;
     align-content: center;
     flex-direction: row;
     width: 100vw;
 
-    padding: 10px;
+
+  }
+
+  /* lower header */
+
+  .container_grid {
+    
+
+    li {
+     
+      display: none;
+
+      &:first-child p{
+       display: none;
+
+
+      }
+   
+    }
+    
+
+
+
+    ul {
+      position: absolute;
+      display: flex;
+      flex-direction: column !important;
+      justify-content: center;
+      align-items: flex-start;
+
+      background-color: transparent;
+      margin-top: -156px;
+
+    
+    }
+    
   }
 }
