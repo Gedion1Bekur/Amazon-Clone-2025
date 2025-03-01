@@ -9,6 +9,7 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { IoSearchSharp } from "react-icons/io5";
 
 import usa_Logo from '../../assets/Images/headerImage/usa-logo.png'
+import { Link } from "react-router-dom";
 function Header() {
   return (
     <>
@@ -17,13 +18,13 @@ function Header() {
 
 
          
-          <a href="">
+          <Link to="/">
             <img
               src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
               alt="amazon-logo"
             />
             {/* <span>.in</span> */}
-          </a>
+          </Link>
      
 
           <div className={styles.left_header_delivery}>
@@ -73,28 +74,28 @@ function Header() {
             </div>
           </a>
 
-          <a href="" className={styles.header_signIn}>
+          <Link to="/auth" className={styles.header_signIn}>
             <div>
               <p>Hello,signin</p>
               <span>Account & List</span>
             </div>
-          </a>
-          <a href="" className={styles.header_order}>
+          </Link>
+          <Link to="/orders" className={styles.header_order}>
             <div>
               <span>
                 <p>Return</p>
               </span>
               <span>& Orders</span>
             </div>
-          </a>
+          </Link>
 
-          <a href="" className={styles.cart}>
+          <Link to="/cart" className={styles.cart}>
             <ShoppingCartOutlinedIcon />
             <span>
               {/* cartInps */}
               <p>0</p>
             </span>
-          </a>
+          </Link>
         </div>
       </section>
 
