@@ -3,11 +3,12 @@ import React from "react";
 import styles from "./product.module.css";
 import Rating from "@mui/material/Rating";
 import CurrencyForamt from "../CurrencyFomat/CurrencyForamt";
-function ProductsCard({ product }) {
-  const { title, price, image, rating } = product;
-  {
-    console.log(product);
+import { Link, data } from "react-router-dom";
+function ProductsCard({ product, renderDesc, flex }) {
+  if (!product) {
+    return <div>Product not found.</div>;
   }
+  const { title, price, id, image, rating } = product;
 
   const truncat = function (str, n) {
     if (str.length > n) {
@@ -18,22 +19,29 @@ function ProductsCard({ product }) {
   };
 
   return (
-    <div className={styles.Card_container}>
-      <a href="">
+    <div
+      className={`${styles.Card_container} ${flex && styles.product_flex }`}
+    >
+        <div className={styles.Card_Image}>
+      <Link to={`/products/${id}`}>
         {/* card image here */}
-        <img src={image} alt="" />
-      </a>
+        <img src={image} alt={`product image for ${title} `} loading="eager" />
+      </Link>
 
-      <div className={styles.Card_content}>
+      </div>
+      
+      <div className={styles.Card_contsent}>
         <h3>{truncat(`${title}`, 50)}</h3>
         {/* {renderDesc && <div style={{maxWidth:"700px"}}>{description}</div>} */}
 
         <div className={styles.Card_rating}>
-          {/* rating */}
-          <Rating precision={0.5} value={rating.rate} />
-          {/* count */}
+          {rating && (
+            <>
+              <Rating precision={0.5} value={rating.rate} />
 
-          <small>{product.rating.count}</small>
+              <small>{rating.count}</small>
+            </>
+          )}
         </div>
         <div className={styles.Card_price}>
           <p>
@@ -41,9 +49,7 @@ function ProductsCard({ product }) {
           </p>
         </div>
 
-        <div>
-          <button>add to cart</button>
-        </div>
+        <button>add to cart</button>
       </div>
     </div>
   );

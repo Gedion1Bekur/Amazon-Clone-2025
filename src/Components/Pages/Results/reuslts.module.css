@@ -1,0 +1,12 @@
+.Product_wrapper {
+    display: grid;
+    max-width: 1440PX;
+  
+    gap: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  
+    justify-items: center;
+    margin: 100px auto;
+    width: 90%;
+  }
+  

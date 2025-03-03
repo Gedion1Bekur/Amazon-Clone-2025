@@ -6,6 +6,8 @@ function Category() {
   return (
     <div className={styles.Catagory_conateiner }>
       {catagoryFullData?.map((images, i) => {
+
+     
         return <CategoryCards key={i} data={images} />;
       })}
     </div>
