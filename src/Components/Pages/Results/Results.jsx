@@ -46,6 +46,7 @@ function Results() {
                   <ProductsCard
                     key={singleProducts.id}
                     product={singleProducts}
+                    renderAdd={true}
                   />
                 );
               })}

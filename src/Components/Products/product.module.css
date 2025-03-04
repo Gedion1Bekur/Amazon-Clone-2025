@@ -34,6 +34,7 @@
     cursor: pointer;
 
     &:hover {
+      display: block;
       background-color: var(--primary-shade);
     }
   }
@@ -63,36 +64,78 @@
   width: 90%;
 }
 
-/* this is below single product detail */
-/* .product_flex > div {
-  border: 2px solid red;
-  display: flex;
+.Product_flex .Card_contsent {
+  position: absolute;
+  margin-left: 16vw;
+  top: 52px;
+  width: 120%;
   box-shadow: none;
-  height: auto;
-  gap: 40vw;
-width: 100%;
-  flex-direction: column;
+  h4 {
+    font-size: 19px;
+  }
+  h5 {
+    color: #111;
+    font-weight: 100;
+    font-size: 12px;
+  }
 }
 
-.product_flex .Card_contsent {
-}
 
-.product_flex h3 {
-  padding: 25px 0px;
-}
+.Product_flex{
+  
+    margin: 10px;
+  display: flex;
 
-.product_flex button {
+  padding: 10px;
+
+  box-shadow: none;
+
+  h4{
+    font-size: 2rem;
+  
+  }
+}
+.Product_flex button{
   display: block;
-  width: 170px;
-  position: static;
 }
 
-.product_flex {
-  height: 50vh;
-}
 
-.product_flex img {
-  width: 300px !important;
-  height: auto;
+
+
+@media only screen and (max-width: 600px) {
+
+  /* .Card_container {
+     display: flex;
+     
+      width: 70px;
+      text-decoration: none;
+      padding: 9px;
+      position: relative;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgb(0, 0, 0.2);
+      flex-direction: column;
+
+} */
+/* .Product_flex .Card_contsent {
+  position: absolute;
+gap: 3vw;
+  margin-left: 16vw;
+  top: 1vh;
+  width: 33vw;
+  box-shadow: none;
+  h4 {
+    font-size: 19px;
+  }
+  h5 {
+    color: #111;
+    font-weight: 100;
+    font-size: 12px;
+  }
+
+
 } */
 
+.Product_Container{
+
+}
+}

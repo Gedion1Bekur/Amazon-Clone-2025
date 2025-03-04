@@ -17,13 +17,13 @@
   padding: 0 10px;
 }
 
-
 .Card a {
   text-decoration: none;
   color: rgb(35, 35, 35);
-  h2,p {
+  h2,
+  p {
     padding: 5px;
-  } 
+  }
 }
 /*
 
@@ -52,3 +52,78 @@ p {
   align-items: center;
   justify-content: stretch;
 }
+
+@media only screen and (max-width: 477px) {
+  .Catagory_conateiner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: -7vh;
+    position: relative;
+    place-items: center;
+    align-items: center;
+    /* justify-content: stretch; */
+  }
+  .Card {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    height: 26vh;
+    width: 22vw;
+    color: white;
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 0 32px #8a8585;
+    /* padding: 15px; */
+  }
+  .Card img {
+    width: 100%;
+    max-height: 128px;
+    object-fit: contain;
+    padding: -4px 10px;
+  }
+
+  .Card p {
+    text-align: left;
+    font-size: 0.5em;
+    font-weight: bold;
+    color: rgb(9, 133, 270);
+  }
+}
+@media only screen and (min-width: 477px) {
+
+  .Catagory_conateiner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: -6vh;
+    position: relative;
+    place-items: center;
+    align-items: center;
+    justify-content: stretch;
+}
+  .Card {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 35vh;
+    width: 22vw;
+    color: white;
+    background-color: #ffffff;
+
+    box-shadow: 0 0 32px #8a8585;
+    /* padding: 15px; */
+  }
+
+  .Card {
+    img {
+    width: 100%;
+    max-height: 157px;
+    object-fit: contain;
+    padding: 0 10px;
+}
+}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+/* @media only screen and (min-width: 768px) {...} */

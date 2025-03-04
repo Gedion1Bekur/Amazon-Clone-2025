@@ -1,3 +1,11 @@
+.Header_warpper_fixed{
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+
+}
+
 .Header_container {
   display: flex;
   justify-items: flex-start;
@@ -186,12 +194,12 @@ input {
   display: flex;
   span {
     position: absolute;
-    margin-top: -11px;
+    margin-top: -10px;
     margin-left: 6px;
     p {
       color: orange;
       font-weight: bold;
-      font-size: 20px;
+      font-size: 1rem;
     }
   }
 }

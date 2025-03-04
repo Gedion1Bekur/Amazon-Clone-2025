@@ -16,7 +16,7 @@ function ProductDetail() {
     try {
       setisLoading(true)
       axios.get(`${ProductUrl}/products/${productsID}`).then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         SetItems(res.data);
         setisLoading(false)
       });
@@ -38,6 +38,7 @@ function ProductDetail() {
    <ProductsCard product={items} 
         renderDesc={true}
         flex={true}
+        renderAdd={true}
   />
 </div>
 

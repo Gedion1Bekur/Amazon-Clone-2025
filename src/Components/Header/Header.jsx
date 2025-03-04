@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./header.module.css";
 // import { CiSe from "./header.module.css";
 // import { CiSearch } from "react-icons/ci";
@@ -7,12 +7,19 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { CiLocationOn } from "react-icons/ci";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { IoSearchSharp } from "react-icons/io5";
-
+import { ParentContext } from "../DataProvider/DataProvider";
 import usa_Logo from '../../assets/Images/headerImage/usa-logo.png'
 import { Link } from "react-router-dom";
 function Header() {
+
+ const[{basket},dispatch] =useContext(ParentContext);
+ const totalItem=basket?.reduce((amount,item)=>{
+  return item.amount + amount
+ },0)
+
+ 
   return (
-    <>
+    <section className={styles.Header_warpper_fixed}>
       <section className={styles.Header_container}>
         <div className={styles.header_left}>
 
@@ -93,14 +100,14 @@ function Header() {
             <ShoppingCartOutlinedIcon />
             <span>
               {/* cartInps */}
-              <p>0</p>
+              <p>{totalItem}</p>
             </span>
           </Link>
         </div>
       </section>
 
       <LowerHeader />
-    </>
+    </section>
   );
 }
 

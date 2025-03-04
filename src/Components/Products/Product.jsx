@@ -41,7 +41,7 @@ item?.map((singleProducts)=>{
 return(
   <ProductsCard
     key={singleProducts.id}
-
+    renderAdd={true}
     product={singleProducts}
   />
 )
