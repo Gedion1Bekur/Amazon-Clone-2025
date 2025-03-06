@@ -14,6 +14,7 @@ function Rounting() {
       <Router>
            <Routes>
             <Route path='/' element={<Landing/>}/>
+            <Route path='/Amazon-Clone-2025' element={<Landing/>}/>
             <Route path='/auth' element={<Auth/>}/>
             <Route path='/payment' element={<Payment/>}/>
             <Route path='/orders' element={<Orders/>}/>

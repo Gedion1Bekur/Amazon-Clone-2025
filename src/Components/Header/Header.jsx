@@ -8,23 +8,20 @@ import { CiLocationOn } from "react-icons/ci";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { IoSearchSharp } from "react-icons/io5";
 import { ParentContext } from "../DataProvider/DataProvider";
-import usa_Logo from '../../assets/Images/headerImage/usa-logo.png'
+import usa_Logo from "../../assets/Images/headerImage/usa-logo.png";
 import { Link } from "react-router-dom";
+
+import { auth } from "../../Utils/firebase";
 function Header() {
+  const [{ user, basket }, dispatch] = useContext(ParentContext);
+  const totalItem = basket?.reduce((amount, item) => {
+    return item.amount + amount;
+  }, 0);
 
- const[{basket},dispatch] =useContext(ParentContext);
- const totalItem=basket?.reduce((amount,item)=>{
-  return item.amount + amount
- },0)
-
- 
   return (
     <section className={styles.Header_warpper_fixed}>
       <section className={styles.Header_container}>
         <div className={styles.header_left}>
-
-
-         
           <Link to="/">
             <img
               src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
@@ -32,7 +29,6 @@ function Header() {
             />
             {/* <span>.in</span> */}
           </Link>
-     
 
           <div className={styles.left_header_delivery}>
             <span className={styles.header_loactionIcon}>
@@ -49,13 +45,13 @@ function Header() {
           </div>
         </div>
         <div className={styles.header_serach}>
-        <div className={styles.header_serach_select}> 
-          <select name="" id="">
-            <option value="">All</option>
+          <div className={styles.header_serach_select}>
+            <select name="" id="">
+              <option value="">All</option>
 
-            <option value="">Art& Crafts</option>
-            <option value="">Automative</option>
-          </select>
+              <option value="">Art& Crafts</option>
+              <option value="">Automative</option>
+            </select>
           </div>
           <input type="text" placeholder="Search here" />
 
@@ -69,10 +65,7 @@ function Header() {
         <div className={styles.header_right}>
           <a href="" className={styles.language}>
             <div>
-              <img
-                src={usa_Logo}
-                alt="USA Logo"
-              />
+              <img src={usa_Logo} alt="USA Logo" />
               <select name="" id="">
                 <option value="">EN</option>
                 <option value="">FR</option>
@@ -81,10 +74,25 @@ function Header() {
             </div>
           </a>
 
-          <Link to="/auth" className={styles.header_signIn}>
+          <Link to={!user && "/auth"} className={styles.header_signIn}>
             <div>
-              <p>Hello,signin</p>
-              <span>Account & List</span>
+              <div>
+                {user ? (
+
+                  <>
+                  <p>Hello, {user?.email?.split("@")[0]}</p>
+                  
+                  <span onClick={()=>{auth.signOut()}}>Sign Out</span>
+                  </>
+                ) : (
+                  <>
+                  <p>Hello,signIn</p>
+                  <span>Account & List</span>
+                  </>
+                  
+                  
+                  )}
+              </div>
             </div>
           </Link>
           <Link to="/orders" className={styles.header_order}>
