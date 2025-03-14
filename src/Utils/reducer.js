@@ -11,7 +11,7 @@ export const reducer = (state, action) => {
       const existingItem = state.basket.find(
         (item) => item.id === action.item.id
       );
-
+     
       if (!existingItem) {
         return {
           ...state,
@@ -35,7 +35,7 @@ export const reducer = (state, action) => {
 
       console.log(newBasket);
       if (index >= 0) {
-        //!in new basket with the index we need to check to dec only by one  read more logic here note to remb!
+        //!in new basket with the index we need to check to dec only by one  read more logic here note to remember!
         if (newBasket[index].amount > 1) {
           newBasket[index] = {
             ...newBasket[index],
@@ -50,12 +50,18 @@ export const reducer = (state, action) => {
         basket: newBasket,
       };
   
+      case Type.EMPTY_BASKET:
+        return{
+          ...state,
+        basket:[]
+        }
 
     case Type.SET_USER:
       return{
         ...state,
         user:action.user
       }
+
     default:
       return state;
   }

@@ -30,9 +30,6 @@ function ProductsCard({ product, renderDesc, flex,renderAdd }) {
       });
     }
 
-    {
-      console.log(state);
-    }
   };
   const turncate = function (str, n) {
     if (str.length > n) {

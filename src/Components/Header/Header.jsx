@@ -3,12 +3,14 @@ import styles from "./header.module.css";
 // import { CiSe from "./header.module.css";
 // import { CiSearch } from "react-icons/ci";
 import LowerHeader from "./LowerHeader/LowerHeader";
-import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+
 import { CiLocationOn } from "react-icons/ci";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { IoSearchSharp } from "react-icons/io5";
 import { ParentContext } from "../DataProvider/DataProvider";
 import usa_Logo from "../../assets/Images/headerImage/usa-logo.png";
+
+import cartImg from "../../assets/Images/headerImage/cart.png"
 import { Link } from "react-router-dom";
 
 import { auth } from "../../Utils/firebase";
@@ -63,8 +65,9 @@ function Header() {
           </div>
         </div>
         <div className={styles.header_right}>
-          <a href="" className={styles.language}>
+          <Link to="" className={styles.language}>
             <div>
+            
               <img src={usa_Logo} alt="USA Logo" />
               <select name="" id="">
                 <option value="">EN</option>
@@ -72,7 +75,7 @@ function Header() {
                 <option value="">Amharic</option>
               </select>
             </div>
-          </a>
+          </Link>
 
           <Link to={!user && "/auth"} className={styles.header_signIn}>
             <div>
@@ -105,7 +108,8 @@ function Header() {
           </Link>
 
           <Link to="/cart" className={styles.cart}>
-            <ShoppingCartOutlinedIcon />
+            {/* <ShoppingCartOutlinedIcon /> */}
+            <img src={cartImg} alt="cart image" />
             <span>
               {/* cartInps */}
               <p>{totalItem}</p>

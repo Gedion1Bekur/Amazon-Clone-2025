@@ -40,14 +40,14 @@ dispatch({
           <hr />
 
           {basket?.length == 0 ? (
-            <h2>Your Shop is empty</h2>
+            <h2> Opss...Your Cart is Empty</h2>
           ) : (
-            basket?.map((item, id) => {
+            basket?.map((item) => {
               return (
                 <section  className={styles.cart_product}>
                   <ProductsCard
                     product={item}
-                    key={id}
+                    key={item.id}
                     renderDesc={true}
                     flex={true}
                     renderAdd={false}
@@ -72,7 +72,7 @@ dispatch({
               <CurrencyForamt amount={total} />
              
             </div>
-            <span><input type="text" placeholder=" Apply Promo code" /></span>
+           
            
             <span>
               <div>
@@ -84,7 +84,7 @@ dispatch({
              
             </span>
 
-            <Link to="./payment">Continue to checkout</Link>
+            <Link to="/payment">Continue to checkout</Link>
           </div>
         )}
       </section>

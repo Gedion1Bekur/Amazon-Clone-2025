@@ -1,12 +1,11 @@
 import React, { use, useContext, useState } from "react";
 import Layout from "../../Layout/Layout";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import styles from "./signUp.module.css";
 import logo from "../../../assets/Images/signUp/images.png";
 import { Type } from "../../../Utils/action.type";
 import { auth } from "../../../Utils/firebase";
 import {ClipLoader } from 'react-spinners'
-
 
 
 import {
@@ -19,6 +18,9 @@ function Auth() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navStateData=useLocation();
+
+  // console.log(navStateData)
 
   const [{ user }, dispatch] = useContext(ParentContext);
 const navigate=useNavigate()
@@ -29,7 +31,7 @@ const navigate=useNavigate()
   });
 
   // console.warn(email,password)
-  console.log(user);
+  // console.log(user);
 
   // auth handelr fun
   const authHandler = (e) => {
@@ -54,7 +56,7 @@ const navigate=useNavigate()
           })
 
           setError("")
-          navigate("/")
+          navigate(navStateData?.state?.redirect || "/")
         })
         .catch((err) => {
           setError(err.message);
@@ -78,7 +80,7 @@ const navigate=useNavigate()
             ...isloading,
             signUp: false,
           });
-          navigate("/")
+          navigate(navStateData?.state?.redirect || "/")
         })
         .catch((err) => {
           setError(err.message);
@@ -95,12 +97,22 @@ const navigate=useNavigate()
       <section className={styles.login}>
         <Link to="/">
           {/* logo */}
-          <img src={logo} alt="amzon-logo" />
+          <img src={logo} alt="amazon-logo" />
         </Link>
 
         {/* form */}
         <div className={styles.login_cotianer}>
           <h1>Sign In</h1>
+          {
+            navStateData?.state?.msg && (
+              <small className={
+                styles.auth_not_logined
+              }>
+
+                {navStateData.state.msg}
+              </small>
+            )
+          }
           <form action="">
             <div className="email">
               <label htmlFor="email">Email</label>

@@ -95,3 +95,10 @@
   font-family: sans-serif;
   font-weight: bold;
 }
+
+.auth_not_logined{
+  padding: 5px;
+  text-align: center;
+  color: red;
+  font-weight: bold;
+}

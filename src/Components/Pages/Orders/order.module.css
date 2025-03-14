@@ -1,0 +1,48 @@
+.container {
+  padding: 30px;
+  background-color: #efeeee;
+}
+
+.order_container {
+  background-color: #fff;
+height: auto !important;
+  padding: 20px;
+}
+.order_container h2 {
+  border-bottom: 2px solid var(--primary-color);
+  padding: 20px;
+}
+
+.Order_product img {
+  width: 80px !important;
+}
+
+.Order_product {
+  padding: 10px;
+  margin-top: 20px;
+  width: 100%;
+}
+.Order_product small,
+.Order_product p {
+  color: rgb(78, 76, 76);
+  font-size: 13px;
+  font-weight: 550;
+}
+
+@media screen and (max-width: 554px) {
+  .Order_product div {
+    margin-left: 25vw !important;
+
+    h4 {
+      font-weight: normal;
+
+      font-size: 12px;
+    }
+  }
+
+  .Order_product small,
+  .Order_product p {
+    color: rgb(78, 76, 76);
+    font-size: 15px;
+  }
+}
